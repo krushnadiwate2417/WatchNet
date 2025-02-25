@@ -195,3 +195,29 @@
     align-items: center;
     gap: 25px;
 }
+
+.videoTitle-main-div{
+    width: 20vw;
+    padding: 180px 25px;
+}
+
+.videoTitle-main-div>div{
+    display: flex;
+    align-items: center;
+}
+
+.videoTitle-main-div>div>button{
+    margin: 5px;
+    padding: 12px 25px;
+    font-size: medium;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.infoBtn{
+    background-color: rgba(150, 149, 149, 0.381);
+    color: white;
+}
+
