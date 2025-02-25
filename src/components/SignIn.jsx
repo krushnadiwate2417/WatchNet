@@ -1,5 +1,7 @@
 import { useRef ,useState} from "react";
 import { validate } from "../utils/validate";
+import {signInWithEmailAndPassword} from "firebase/auth"
+import { auth } from "../utils/firebase";
 
 const SignIn = () =>{
 
@@ -9,12 +11,19 @@ const SignIn = () =>{
     const password = useRef(null);
 
     const handleClick = ()=>{
-        console.log(email.current.value);
-        console.log(password.current.value);
+       const msg =  validate(email.current.value,password.current.value);
+       if(msg) return setErrMsg(msg);
 
-       const msg =  validate(email.current.value,{password : password.current.value});
-       setErrMsg(msg)
-       console.log(msg)
+       signInWithEmailAndPassword(auth,email.current.value,password.current.value)
+       .then((response)=>{
+            const user = response.user;
+            console.log(user);
+       }).catch((err)=>{
+            const errCode = err.code;
+            const errMsg = err.message;
+            setErrMsg(`${errCode},${errMsg}`);
+       })
+
     }
 
     return (

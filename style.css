@@ -15,6 +15,7 @@
     height: 15vh;
     z-index: 2;
     position: relative;
+    background : linear-gradient(to bottom, black,rgba(0, 0, 0, 0.116))
 }
 
 .header-btn{
@@ -68,19 +69,18 @@
 .signUp-grid-div{
     margin-top: 40px;
     display: grid;
-    grid-template-rows: 1fr 1fr ;
+    grid-template-rows: 1fr 2fr ;
     width: fit-content;
     height: fit-content;
     justify-self: center;
     align-self: center;
     text-align: center;
-    gap: 25px;
     padding: 50px 100px;
     background-color: rgba(0, 0, 0, 0.811);
     
 }
 
-.signUp-grid-div>div>input{
+.signUp-grid-div>form>input{
     padding: 15px 70px;
     text-align: center;
     background-color: rgba(182, 182, 182, 0.148);
@@ -88,7 +88,7 @@
     color: white;
 }
 
-.signUp-grid-div>div>input::placeholder{
+.signUp-grid-div>form>input::placeholder{
     color: white;
 }
 
@@ -162,7 +162,6 @@
     padding: 15px 40px;
     cursor: pointer;
     border: 1px solid red;
-    margin-left: 20px;
 }
 
 .signUp-btn:hover{
@@ -187,4 +186,12 @@
 .signIn-btn:hover{
     background-color: rgb(195, 9, 9);
     transition: linear 0.2s ease;
+}
+
+.signUp-form-grid-div{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
 }

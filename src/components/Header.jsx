@@ -1,10 +1,19 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import imgId from"../imgs/logo.png"
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Header = ()=>{
 
     const {pathname} = useLocation();
+
+    const handleClickHeader=()=>{
+        if(pathname === "/browse"){
+            signOut(auth).then().catch()
+        }
+    }
+
     return (
         <>
             <div className="header-main-div">
@@ -13,7 +22,7 @@ const Header = ()=>{
                 </div>
                 <div>
                     <Link to={pathname === "/" ? "/login" : "/"}>
-                    <button className="header-btn">{pathname === "/" ? "Sign In" : "Sign Up"}</button>
+                    <button className="header-btn" onClick={handleClickHeader}>{pathname === "/" ? "Sign In" : pathname === "/browse" ? "Sign Out" : "Sign Up"}</button>
                     </Link>
                 </div>
             </div>
