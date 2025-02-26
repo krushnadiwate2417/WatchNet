@@ -1,8 +1,26 @@
 import { imgURL } from "../utils/constants";
+import { useState,useRef } from "react";
 
 const MovieList = ({title,movies})=>{
 
     if(!movies) return;
+    const [left,setLeft] = useState("visibilityClass");
+    const [right,setRight] = useState("visibilityClass");
+
+    const scroller = useRef(null);
+
+    const handleClickLeft = ()=>{
+        console.log(scroller.current)
+        if (scroller.current) {
+            scroller.current.scrollLeft -= 300; 
+          }
+    }
+
+    const handleClickRight = ()=>{
+        if(scroller.current){
+            scroller.current.scrollLeft += 300;
+        }
+    }
 
     return(
 
@@ -12,19 +30,13 @@ const MovieList = ({title,movies})=>{
                 <h1>{title}</h1>
             </div>
             <div className="movieListDiv">
-                <div className="scrollBtnsDiv">
-                    <button>LeftSIde</button>
-                </div>
                 {
                     movies.map((movie,index)=>{
-                        return <div className="movieCards">
+                        return <div className="movieCards" ref={scroller}>
                             <img src={imgURL+movie.poster_path} height={200}/>
                         </div>
                     })
                 }
-                <div className="scrollBtnsDiv">
-                    <button>RIghtSide</button>
-                </div>
             </div>
            </div>
         </>

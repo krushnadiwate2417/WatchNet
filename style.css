@@ -25,7 +25,7 @@ html::-webkit-scrollbar{
 .header-main-div{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100vw;
     height: fit-content;
     z-index: 2;
@@ -36,7 +36,7 @@ html::-webkit-scrollbar{
 .header-main-div-2{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100vw;
     height: fit-content;
     z-index: 2;
@@ -53,6 +53,7 @@ html::-webkit-scrollbar{
     color: white;
     cursor: pointer;
     border: none;
+    margin-right: 40px;
 }
 
 .header-btn:hover{
@@ -275,7 +276,7 @@ iframe{
     overflow-y: hidden;
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
     -ms-overflow-style: none; 
 }
 
@@ -306,4 +307,50 @@ iframe{
 .scrollBtnsDiv{
     position: absolute;
     z-index: 4;
+    height: auto;
+    align-self: center;
+    mix-blend-mode:luminosity
 }
+
+.leftBtn{
+    display: flex;
+    height: 200px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.visibilityClass{
+    visibility: hidden;
+}
+
+.rightbtndiv{
+    display: flex;
+    width: 95vw;
+    padding-left: 18px;
+    justify-content: flex-end;
+
+}
+
+.rightBtn{
+
+    height: 200px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.headerBtnsDiv{
+    display: flex;
+}
+
+.gpt-button-div>button{
+    background-color: rgb(140, 0, 255);
+    font-size: medium;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-right: 40px;
+}
+  

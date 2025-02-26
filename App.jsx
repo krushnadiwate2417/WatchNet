@@ -5,6 +5,7 @@ import Body from "./src/components/Body";
 import { Provider } from "react-redux";
 import appStore from "./src/utils/appStore";
 import Browse from "./src/components/Browse";
+import Gpt from "./src/components/GPT";
 
 
 const App = ()=>{
@@ -29,7 +30,7 @@ const appRouter = createBrowserRouter([
     {
         path : "/browse",
         element : <Browse/>
-    }
+    },
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
