@@ -1,10 +1,10 @@
 
 import { useEffect } from "react";
-import {url,options} from "../utils/constants";
+import {options} from "../utils/constants";
 import { useDispatch } from "react-redux";
 import {addNowPlaying} from "../utils/movieSlice"
 
-const useNowMovies = ()=>{
+const useNowMovies = (url,method)=>{
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -15,8 +15,8 @@ const useNowMovies = ()=>{
         try {
             const response = await fetch(url,options);
             const jsonRes = await response.json();
-            dispatch(addNowPlaying(jsonRes.results))
-
+            dispatch(method(jsonRes.results))
+            console.log(jsonRes.results);
         } catch (error) {
             console.log(error);
         }

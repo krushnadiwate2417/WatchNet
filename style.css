@@ -3,6 +3,21 @@
     padding: 0px;
 }
 
+html{
+    overflow: auto;
+    white-space: wrap;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; 
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+html::-webkit-scrollbar{
+    display: none;
+}
+
 .hide{
     display: none;
 }
@@ -12,9 +27,20 @@
     align-items: center;
     justify-content: space-around;
     width: 100vw;
-    height: 15vh;
+    height: fit-content;
     z-index: 2;
     position: relative;
+    background : linear-gradient(to bottom, black,rgba(0, 0, 0, 0.116))
+}
+
+.header-main-div-2{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: fit-content;
+    z-index: 2;
+    position: absolute;
     background : linear-gradient(to bottom, black,rgba(0, 0, 0, 0.116))
 }
 
@@ -198,16 +224,27 @@
 
 .videoTitle-main-div{
     width: 20vw;
-    padding: 180px 25px;
+    height: 100vh;
+    padding-top: 330px;
+    padding-left: 55px;
+    position: absolute;
+    color: white;
+    background : linear-gradient(to right, black,rgba(0, 0, 0, 0))
 }
+
 
 .videoTitle-main-div>div{
     display: flex;
     align-items: center;
+    gap: 15px;
+    margin: 10px 0px;
+}
+
+.videoTitle-main-div>div>h1{
+    font-size: 50px;
 }
 
 .videoTitle-main-div>div>button{
-    margin: 5px;
     padding: 12px 25px;
     font-size: medium;
     font-weight: bold;
@@ -219,5 +256,54 @@
 .infoBtn{
     background-color: rgba(150, 149, 149, 0.381);
     color: white;
+    cursor: pointer;
 }
 
+.iframeVideo{
+    margin: 0px;
+    width: 100vw;
+    aspect-ratio: 16/9;
+}
+
+iframe{
+    border: none;
+}
+
+.movieListDiv{
+    display: flex;
+    gap: 10px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; 
+}
+
+.movieListDiv::-webkit-scrollbar{
+    display: none;
+}
+
+.movieCards{
+    cursor: pointer;
+}
+
+.secContainer{
+    margin: 0px;
+    background-color: rgb(23, 23, 23);
+    color: white;
+}
+
+.movieListMainTopDiv{
+    padding: 0px 30px;
+}
+
+.moviesDivList{
+    margin-top: -190px;
+    position: relative;
+    z-index: 3;
+}
+
+.scrollBtnsDiv{
+    position: absolute;
+    z-index: 4;
+}

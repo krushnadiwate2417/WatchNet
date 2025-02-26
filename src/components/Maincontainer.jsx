@@ -16,7 +16,6 @@ const Maincontainer = ()=>{
 
     return (
         <>
-            <div>Main</div>
             <VideoTitle title={original_title} overview={overview} />
             <VideoBG movie_id={mainMovie.id}/>
         </>

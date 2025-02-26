@@ -36,7 +36,7 @@ const Header = ()=>{
 
     return (
         <>
-            <div className="header-main-div">
+            <div className={pathname === "/browse" ? "header-main-div-2" :"header-main-div"}>
                 <div className="logo-div"> 
                     <img src={imgId} alt="logoImg" width={350}/>
                 </div>
