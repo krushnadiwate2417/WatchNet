@@ -31,6 +31,10 @@ const appRouter = createBrowserRouter([
         path : "/browse",
         element : <Browse/>
     },
+    {
+        path : "/gptSearch",
+        element : <Gpt/>
+    }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

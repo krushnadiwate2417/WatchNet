@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import {addNowPlaying} from "../utils/movieSlice"
 
 const useNowMovies = (url,method)=>{
+    console.log(url)
     const dispatch = useDispatch();
 
     useEffect(()=>{

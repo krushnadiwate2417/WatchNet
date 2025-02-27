@@ -299,7 +299,7 @@ iframe{
 }
 
 .moviesDivList{
-    margin-top: -190px;
+    margin-top: -240px;
     position: relative;
     z-index: 3;
 }
@@ -354,3 +354,103 @@ iframe{
     margin-right: 40px;
 }
   
+
+
+.form-main-div{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://www.pointgadget.com/wp-content/uploads/2019/12/best-netflix-alternatives.jpg");
+    background-size: cover; /* Ensures the image covers the entire div */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+    overflow: hidden; /* Prevents scrolling */
+    opacity: 1;
+}
+
+.form-main-div::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black overlay with 50% opacity */
+    z-index: 1;
+}
+
+.form-main-div>form{
+    display: flex;
+    gap: 20px;
+    padding: 30px 100px;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.635);
+    margin-bottom: 200px;
+    z-index: 2;
+}
+
+.form-main-div>form>input{
+    width: 400px;
+    padding: 15px 10px;
+    background-color: rgba(182, 182, 182, 0.148);
+    border: 1px solid gray;
+    color: white;
+
+}
+
+.form-main-div>form>input::placeholder{
+    color: white;
+}
+
+.form-main-div>form>button{
+    background-color: red;
+    font-size: medium;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-right: 40px;
+}
+
+.form-main-div>form>button:hover{
+    background-color: rgb(195, 9, 9);
+    transition: linear 0.2s ease;
+}
+
+
+.langSelector>select{
+    border: 2px solid white;
+    background-color: transparent;
+    font-size: medium;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+
+.langSelector>select>option{
+    background-color: red;
+}
+
+.seriesListDiv{
+    margin-top: 50px;
+}
+
+.seriesListDiv>h1,.moviesDivList>h1{
+    justify-self: center;
+    font-size: 50px;   
+}
+
+.seriesListDiv>div,.moviesDivList>div{
+    padding-bottom: 30px;
+}

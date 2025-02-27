@@ -6,8 +6,21 @@ export const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTFlMzc5OTAzNmI2ODc2NWM0N2UxZWVlZjljNDU3NyIsIm5iZiI6MTc0MDQ2MzY0OS43MzIsInN1YiI6IjY3YmQ1ZTIxNjM0MDA5MTdlODJkYWM4MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xvcg-msFwAWs_dX0iED4qkWdF63QnPNIDzUACtyS3p8'
+    Authorization: `Bearer ${process.env.TMDB_TOKEN}`
   }
 };
 
-export const imgURL = "https://image.tmdb.org/t/p/w500"
+export const imgURL = "https://image.tmdb.org/t/p/w500";
+
+export const languagesUsing = [
+  {languageName : "en",name : "English"},
+  {languageName : "hindi",name : "Hindi"},
+  {languageName : "spanish",name : "Spanish"},
+];
+
+
+export const tvTopRatedURL = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&language=en-US&page=1&sort_by=vote_average.desc&vote_count.gte=200';
+export const tvPopularURL = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&language=en-US&page=1&sort_by=popularity.desc';
+export const tvAirURL = 'https://api.themoviedb.org/3/trending/tv/day?language=en-US';
+
+

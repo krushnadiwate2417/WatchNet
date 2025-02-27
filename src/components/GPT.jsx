@@ -1,9 +1,16 @@
+import GptMovieSugesstion from "./GptMovieSuggestion";
+import GptSearchBar from "./GptSearchBar";
+import Header from "./Header";
 
 
 const Gpt = ()=>{
     return (
-        <>
-            Seacrh
+        <>  
+            <div>
+                <Header/>
+            </div>
+            <GptSearchBar/>
+            <GptMovieSugesstion/>
         </>
     )
 }
