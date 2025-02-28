@@ -9,7 +9,6 @@ const Secondarycontainer = ()=>{
         <>
             <div className="secContainer">
                 <div className="moviesDivList">
-                    <h1>Movies</h1>
                     <div><MovieList title={"Now Playing"} movies={nowPlaying}/></div>
                     <div><MovieList title={"Popular"} movies={popular}/></div>
                     <div><MovieList title={"Top Rated Movies"} movies={topRated}/></div>

@@ -1,14 +1,15 @@
 import { useSelector } from "react-redux";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import lang from "../utils/langConst";
 import openai from "../utils/openAi";
-
-
+import model from "../utils/genAi";
+import SearchList from "./SearchList";
 
 const GptSearchBar = ()=>{
 
     const selecedLanguage = useSelector(store=>store.lang.selectedLang);
     const search = useRef(null);
+    const [aiSearch,setAiSearch] = useState(null);
 
     // const handleSearch =async ()=>{
 
@@ -24,13 +25,34 @@ const GptSearchBar = ()=>{
     //     console.log(gptResult);
     // }
 
+
+    const handleSearch = async ()=>{
+        const prompt = `Act as Movie Recomendation System and answer accordingly\n${search.current.value}\nGive respone Comma seperated and only 6 movies. Don't answer anything else, just give movies or series`;
+        const result = await model.generateContent(prompt)
+        console.log(result.response.text());
+        const arr = result.response.text().split(",")
+        setAiSearch(arr);
+        console.log(arr);
+    }
+
     return (
         <>
             <div className="form-main-div">
-                <form onSubmit={(e)=>{e.preventDefault()}}>
+               <div>
+               <form onSubmit={(e)=>{e.preventDefault()}}>
                     <input ref={search} type="text" placeholder={lang[selecedLanguage].placeHolder}/>
-                    <button >{lang[selecedLanguage].search}</button>
+                    <button onClick={handleSearch} >{lang[selecedLanguage].search}</button>
                 </form>
+               </div>
+               <div className="searchDivGPT">
+                    <div>
+                    {
+                    aiSearch && aiSearch.map((value,index)=>{
+                        return <SearchList movie={value}/>
+                    })
+                    }
+                    </div>
+            </div>
             </div>
         </>
     )

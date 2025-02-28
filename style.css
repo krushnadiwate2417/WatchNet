@@ -299,7 +299,7 @@ iframe{
 }
 
 .moviesDivList{
-    margin-top: -240px;
+    margin-top: -150px;
     position: relative;
     z-index: 3;
 }
@@ -356,7 +356,7 @@ iframe{
   
 
 
-.form-main-div{
+.form-main-div>div{
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -373,7 +373,7 @@ iframe{
     opacity: 1;
 }
 
-.form-main-div::before{
+.form-main-div>div::before{
     content: "";
     position: absolute;
     top: 0;
@@ -384,17 +384,17 @@ iframe{
     z-index: 1;
 }
 
-.form-main-div>form{
+.form-main-div>div>form{
     display: flex;
     gap: 20px;
     padding: 30px 100px;
     border: 1px solid black;
     background-color: rgba(0, 0, 0, 0.635);
-    margin-bottom: 200px;
     z-index: 2;
+    margin-bottom: 200px;
 }
 
-.form-main-div>form>input{
+.form-main-div>div>form>input{
     width: 400px;
     padding: 15px 10px;
     background-color: rgba(182, 182, 182, 0.148);
@@ -403,11 +403,11 @@ iframe{
 
 }
 
-.form-main-div>form>input::placeholder{
+.form-main-div>div>form>input::placeholder{
     color: white;
 }
 
-.form-main-div>form>button{
+.form-main-div>div>form>button{
     background-color: red;
     font-size: medium;
     font-weight: bold;
@@ -419,7 +419,7 @@ iframe{
     margin-right: 40px;
 }
 
-.form-main-div>form>button:hover{
+.form-main-div>div>form>button:hover{
     background-color: rgb(195, 9, 9);
     transition: linear 0.2s ease;
 }
@@ -453,4 +453,35 @@ iframe{
 
 .seriesListDiv>div,.moviesDivList>div{
     padding-bottom: 30px;
+}
+
+.searchResultsMainDiv{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    z-index: 3;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+
+.searchDivGPT{
+    position: absolute;
+    z-index: 4;
+    top: 400px;
+    padding-bottom: 100px;
+}
+
+.searchDivGPT>div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px 10px;
+    gap: 80px 10px;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.635);
 }
