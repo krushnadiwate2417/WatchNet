@@ -278,6 +278,9 @@ iframe{
     white-space: nowrap;
     scrollbar-width: none;
     -ms-overflow-style: none; 
+    touch-action: pan-x; /* Only allows horizontal scrolling */
+
+    
 }
 
 .movieListDiv::-webkit-scrollbar{
@@ -485,3 +488,219 @@ iframe{
     z-index: 4;
     background-color: rgba(0, 0, 0, 0.635);
 }
+
+@media (max-width: 768px) {
+
+    .header-main-div,.header-main-div-2{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+        background : linear-gradient(to bottom, black,rgba(0, 0, 0, 0.116))
+    }   
+
+    .header-btn{
+        margin: 0px;
+    }
+
+
+
+    .headerBtnsDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        gap: 15px;
+    }
+
+    .gpt-button-div{
+        padding-top: 10px;
+    }
+
+    .gpt-button-div>button{
+        font-size: small;
+        padding:5px 5px;
+        margin: 0px;
+    }
+
+    .signBtnDiv{
+        padding-top: 10px;
+    }
+
+    .header-btn{
+        font-size: small;
+        padding:5px 5px;
+
+    }
+
+    .langSelector{
+        padding-top: 10px;
+    }
+
+    .langSelector>select{
+        font-size: x-small;
+        padding:5px 5px;
+        margin: 0px;
+    }
+
+    .logo-div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+
+    }
+
+    .movieCards>img{
+        height: 170px;
+        overflow-y: auto;
+    }
+
+    .listTitle{
+        font-size: x-large;
+        padding: 10px 0px;
+    }
+
+    .logo-div>img{
+        width: 200px;
+        padding-top: 20px;
+    }
+
+    .signUp-div{
+        margin: 0px 60px;
+    }
+    .moviesDivList{
+        margin-top: 100px;
+        overflow-y: auto;
+    }
+
+    .movieListMainTopDiv{
+        padding: 0px 20px;
+    }
+
+    .form-main-div > div > form {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        z-index: 5;
+        padding-bottom: 0px;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        top: 300px;
+    }
+
+    .form-main-div>div>form>input{
+        width: 250px;
+        height: 50px;
+    }
+
+    .form-main-div>div>form>button{
+        margin: 0px;
+        width: fit-content;
+        height: fit-content;
+        justify-self: center;
+    }
+
+    .searchDivGPT{
+        top: 600px;
+        padding: 0px;
+        height: 100vh;
+    }
+
+    .searchDivGPT>div{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    .searchResultsMainDiv{
+        width: 100vw;
+    }
+
+    .form-main-div>div{
+        overflow: auto;
+        display: block;
+    }
+
+
+    .iframeVideo{
+        position: relative;
+        z-index: 1;
+        top: 100px;
+        border: none;
+    }
+
+    .videoTitle-main-div{
+        margin: 0px;
+        padding: 0px;
+        z-index: 2;
+        top: 180px;
+        padding-left: 20px;
+        background: none;
+        width: 50%;
+    }
+
+    .videoTitle-main-div>div>button{
+        font-size: small;
+        padding: 7px 14px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+
+    .videoTitle-main-div>div>h1{
+        font-size: xx-large;
+    }
+
+    .videoTitleP>p{
+        display: none;
+    }
+    iframe{
+        border: none;
+    }
+
+    html{
+        background-color: black;
+    }
+}
+
+
+
+
+
+
+.loader {
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.811);
+    transition: opacity 0.75s, visibility 0.75s;
+  }
+  
+  .loader::after {
+
+    content: "";
+    width: 50px;
+    height: 50px;
+    border: 7px solid rgb(200, 22, 22);
+    border-top-color: rgb(235, 53, 53);
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+  }
+  
+  @keyframes loading {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }

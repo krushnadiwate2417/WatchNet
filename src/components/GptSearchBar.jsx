@@ -4,12 +4,15 @@ import lang from "../utils/langConst";
 import openai from "../utils/openAi";
 import model from "../utils/genAi";
 import SearchList from "./SearchList";
+import Loader from "./Loader";
 
 const GptSearchBar = ()=>{
 
     const selecedLanguage = useSelector(store=>store.lang.selectedLang);
     const search = useRef(null);
     const [aiSearch,setAiSearch] = useState(null);
+    const [loaderState,setLoaderState] = useState(false)
+
 
     // const handleSearch =async ()=>{
 
@@ -27,16 +30,19 @@ const GptSearchBar = ()=>{
 
 
     const handleSearch = async ()=>{
+        setLoaderState(true);
         const prompt = `Act as Movie Recomendation System and answer accordingly\n${search.current.value}\nGive respone Comma seperated and only 6 movies. Don't answer anything else, just give movies or series`;
-        const result = await model.generateContent(prompt)
+        const result = await model.generateContent(prompt);
+        if(result) setLoaderState(false);
         console.log(result.response.text());
-        const arr = result.response.text().split(",")
+        const arr = result.response.text().split(",");
         setAiSearch(arr);
         console.log(arr);
     }
 
     return (
-        <>
+        <>  
+            {loaderState && <Loader/>}
             <div className="form-main-div">
                <div>
                <form onSubmit={(e)=>{e.preventDefault()}}>
@@ -45,13 +51,13 @@ const GptSearchBar = ()=>{
                 </form>
                </div>
                <div className="searchDivGPT">
-                    <div>
+                    
                     {
                     aiSearch && aiSearch.map((value,index)=>{
-                        return <SearchList movie={value}/>
+                        return <div><SearchList movie={value}/></div>
                     })
                     }
-                    </div>
+
             </div>
             </div>
         </>

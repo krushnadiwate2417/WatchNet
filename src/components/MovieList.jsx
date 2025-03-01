@@ -27,9 +27,9 @@ const MovieList = ({title,movies})=>{
         <>
            <div className="movieListMainTopDiv">
             <div>
-                <h1>{title}</h1>
+                <h1 className="listTitle">{title}</h1>
             </div>
-            <div className="movieListDiv">
+            <div className="movieListDiv" onTouchMove={(e)=>{e.stopPropagation()}}>
                 {
                     movies.map((movie,index)=>{
                         return <div className="movieCards" ref={scroller}>

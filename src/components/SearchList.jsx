@@ -21,9 +21,9 @@ const SearchList = ({movie})=>{
         }
     }
 
-    return searchObj ? (
+    return (
         <>
-            <div className="searchResultsMainDiv">
+            {searchObj && <div className="searchResultsMainDiv">
                 <div>
                     <img src={imgURL+searchObj.poster_path} height={150}/>
                 </div>
@@ -35,9 +35,9 @@ const SearchList = ({movie})=>{
                         <p>{searchObj.overview}</p>
                     </div>
                 </div>
-            </div>
+            </div>}
         </>
-    ) : null;
+    ) 
 }
 
 export default SearchList;

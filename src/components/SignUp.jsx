@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { validate } from "../utils/validate";
 import {createUserWithEmailAndPassword} from "firebase/auth"
 import { auth } from "../utils/firebase";
@@ -7,6 +7,8 @@ import lang from "../utils/langConst";
 
 const SignUp = ()=>{
 
+    const [loaderState,setLoaderState] = useState(false)
+
     const fullName = useRef(null);
     const email = useRef(null);
     const password = useRef(null);
@@ -14,12 +16,15 @@ const SignUp = ()=>{
 
 
     const handleSignUp = ()=>{
+        setLoaderState(true)
         const msg = validate(email.current.value,password.current.value);
+
         if(msg) return;
 
 
         createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
         .then((response)=>{
+            setLoaderState(false)
             const user = response.user;
             console.log(user);
         }).catch((err)=>{
@@ -33,7 +38,8 @@ const SignUp = ()=>{
     }
 
     return (
-        <>
+        <>  
+           {loaderState && < Loader/>}
             <div className="signUp-div">
                 <div className="signUp-grid-div">
                     <div>

@@ -5,9 +5,12 @@ import { auth } from "../utils/firebase";
 import { useSelector } from "react-redux";
 import lang from "../utils/langConst";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader";
 
 
 const SignIn = () =>{
+
+    const [loaderState,setLoaderState] = useState(false)
 
     const [errMsg,setErrMsg] = useState("")
     const selectedLang = useSelector(store=>store.lang.selectedLang);
@@ -19,11 +22,13 @@ const SignIn = () =>{
     const password = useRef(null);
 
     const handleClick = ()=>{
+        setLoaderState(true)
        const msg =  validate(email.current.value,password.current.value);
        if(msg) return setErrMsg(msg);
 
        signInWithEmailAndPassword(auth,email.current.value,password.current.value)
        .then((response)=>{
+            setLoaderState(false)
             const user = response.user;
             navigate("/browse")
             console.log(user);
@@ -36,7 +41,8 @@ const SignIn = () =>{
     }
 
     return (
-        <>
+        <>  
+            {loaderState && <Loader/>}
             <form className="signIn-div" onSubmit={(e)=>e.preventDefault()}>
                 <h1>Sign In</h1>
                 <div>

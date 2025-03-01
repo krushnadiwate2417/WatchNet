@@ -19,9 +19,11 @@ const Browse = ()=>{
     
     return (
         <>
-            <div><Header/></div>
-            <Maincontainer/>
-            <Secondarycontainer/>
+            <div className="browseDiv">
+                <div><Header/></div>
+                <Maincontainer/>
+                <Secondarycontainer/>
+            </div>
         </>
     )
 }

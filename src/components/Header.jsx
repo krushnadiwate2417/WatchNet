@@ -75,7 +75,9 @@ const Header = ()=>{
                         </select>
                     </div>}
                     <Link to={pathname === "/" ? "/login" : "/"}>
+                    {pathname === "/gptSearch" ? null : <div className="signBtnDiv">
                     <button className="header-btn" onClick={handleClickHeader}>{pathname === "/" ? lang[selectedLang].signIn : pathname === "/browse" || pathname === "/gptSearch" ? lang[selectedLang].signOut : lang[selectedLang].signUp}</button>
+                    </div>}
                     </Link>
                 </div>
             </div>

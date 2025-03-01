@@ -1,4 +1,4 @@
-import GptMovieSugesstion from "./GptMovieSuggestion";
+
 import GptSearchBar from "./GptSearchBar";
 import Header from "./Header";
 
@@ -10,7 +10,6 @@ const Gpt = ()=>{
                 <Header/>
             </div>
             <GptSearchBar/>
-            <GptMovieSugesstion/>
         </>
     )
 }
