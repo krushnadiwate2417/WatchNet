@@ -9,7 +9,9 @@ const lang = {
         signOut : "Sign Out",
         fullName : "Full Name",
         email : "Email Address",
-        password : "Password"
+        password : "Password",
+        firstH1 : "Unlimited Movies,",
+        secondH1 : "Web Series and TV Shows"
     },
     hindi: {
         search : "खोज",
@@ -19,7 +21,9 @@ const lang = {
         signOut : "साइन आउट",
         fullName : "पूरा नाम",
         email : "मेल पता",
-        password : "पासवर्ड"
+        password : "पासवर्ड",
+        firstH1 : "असीमित फिल्में,",
+        secondH1 : "वेब सीरीज और टीवी शो"
     },
     spanish: {
         search : "Buscar",
@@ -29,7 +33,9 @@ const lang = {
         signOut : "Desconectar",
         fullName : "Nombre completo",
         email : "Correo electrónico",
-        password : "Contraseña"
+        password : "Contraseña",
+        firstH1 : "Películas ilimitadas,",
+        secondH1 : "Series web y programas de televisión"
     }
 }
 

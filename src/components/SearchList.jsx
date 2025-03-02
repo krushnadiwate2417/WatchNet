@@ -16,7 +16,6 @@ const SearchList = ({movie})=>{
             const jsonRes = await res.json();
             setSearchObj(jsonRes.results[0]);
         } catch (error) {
-            console.log(error)
             return
         }
     }

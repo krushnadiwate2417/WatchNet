@@ -60,17 +60,17 @@ const Header = ()=>{
                 </div>
                 <div className="headerBtnsDiv">
                    <Link>
-                   {user && <div className="gpt-button-div">
+                   {user && (pathname === "/browse" || pathname === "/gptSearch") && <div className="gpt-button-div">
                         <button onClick={handleGpt}>
                             {pathname === "/browse" ? "GPT Search" : "Home"}
                         </button>
                     </div>
                     }
                    </Link>
-                    {pathname === "/browse" ? null :<div className="langSelector">
+                    {pathname === "/browse"  ? null :<div className="langSelector">
                         <select onChange={(e)=>{handleSelect(e)}}>
-                            {languagesUsing.map((lang)=>{
-                                return <option value={lang.languageName}>{lang.name}</option>
+                            {languagesUsing.map((lang,index)=>{
+                                return <option key={index} value={lang.languageName}>{lang.name}</option>
                             })}
                         </select>
                     </div>}

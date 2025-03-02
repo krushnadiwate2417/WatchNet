@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import {addNowPlaying} from "../utils/movieSlice"
 
 const useNowMovies = (url,method)=>{
-    console.log(url)
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -17,9 +16,8 @@ const useNowMovies = (url,method)=>{
             const response = await fetch(url,options);
             const jsonRes = await response.json();
             dispatch(method(jsonRes.results))
-            console.log(jsonRes.results);
         } catch (error) {
-            console.log(error);
+            return error;
         }
     }
 

@@ -33,6 +33,7 @@ html::-webkit-scrollbar{
     background : linear-gradient(to bottom, black,rgba(0, 0, 0, 0.116))
 }
 
+
 .header-main-div-2{
     display: flex;
     align-items: center;
@@ -53,12 +54,15 @@ html::-webkit-scrollbar{
     color: white;
     cursor: pointer;
     border: none;
-    margin-right: 40px;
 }
 
 .header-btn:hover{
     background-color: rgb(195, 9, 9);
     transition: linear 0.2s ease;
+}
+
+.forgotPass{
+    cursor: pointer;
 }
 
 .body-main-div{
@@ -88,15 +92,14 @@ html::-webkit-scrollbar{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 80vh;
     z-index: 2;
     position: relative;
 }
 
 .signUp-grid-div{
-    margin-top: 40px;
     display: grid;
-    grid-template-rows: 1fr 2fr ;
+    grid-template-rows: 1fr 3fr ;
     width: fit-content;
     height: fit-content;
     justify-self: center;
@@ -107,7 +110,7 @@ html::-webkit-scrollbar{
     
 }
 
-.signUp-grid-div>form>input{
+.signUp-grid-div>form>div>input{
     padding: 15px 70px;
     text-align: center;
     background-color: rgba(182, 182, 182, 0.148);
@@ -115,7 +118,7 @@ html::-webkit-scrollbar{
     color: white;
 }
 
-.signUp-grid-div>form>input::placeholder{
+.signUp-grid-div>form>div>input::placeholder{
     color: white;
 }
 
@@ -123,19 +126,26 @@ html::-webkit-scrollbar{
     color: white;
 }
 
+.errorP{
+    padding-bottom: 5px;
+    letter-spacing: 2px;
+    color: red;
+}
 
 .signIn-div{
     margin-top: 15px;
     display: grid;
     justify-self: center;
     align-self: center;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     height: fit-content;
     width: fit-content;
+    text-align: center;
     gap: 20px;
     border: none;
-    padding: 80px 100px;
+    padding: 50px 100px;
     background-color: rgba(0, 0, 0, 0.811);
+
 }
 
 .signIn-div>div>p{
@@ -210,6 +220,8 @@ html::-webkit-scrollbar{
     transition: linear 0.2s ease;
 }
 
+
+
 .signIn-btn:hover{
     background-color: rgb(195, 9, 9);
     transition: linear 0.2s ease;
@@ -217,7 +229,7 @@ html::-webkit-scrollbar{
 
 .signUp-form-grid-div{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
     gap: 25px;
@@ -334,6 +346,16 @@ iframe{
 
 }
 
+.paraDiv>p{
+    padding-top: 10px;
+    padding-right: 10px;
+    text-align: justify;
+    display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .rightBtn{
 
     height: 200px;
@@ -343,6 +365,10 @@ iframe{
 
 .headerBtnsDiv{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-right: 20px;
 }
 
 .gpt-button-div>button{
@@ -354,7 +380,7 @@ iframe{
     color: white;
     cursor: pointer;
     border: none;
-    margin-right: 40px;
+
 }
   
 
@@ -372,7 +398,7 @@ iframe{
     background-repeat: no-repeat; /* Prevents the image from repeating */
     height: 100vh; /* Full height */
     width: 100vw; /* Full width */
-    overflow: hidden; /* Prevents scrolling */
+    overflow: auto; /* Prevents scrolling */
     opacity: 1;
 }
 
@@ -433,11 +459,10 @@ iframe{
     background-color: transparent;
     font-size: medium;
     font-weight: bold;
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    margin-right: 40px;
 }
 
 
@@ -470,6 +495,7 @@ iframe{
     z-index: 3;
     padding-bottom: 10px;
     border-bottom: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.635);
 }
 
 .searchDivGPT{
@@ -483,10 +509,10 @@ iframe{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 40px 10px;
     gap: 80px 10px;
     z-index: 4;
-    background-color: rgba(0, 0, 0, 0.635);
+    position: absolute;
+
 }
 
 @media (max-width: 768px) {

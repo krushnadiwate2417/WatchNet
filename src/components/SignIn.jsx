@@ -12,7 +12,7 @@ const SignIn = () =>{
 
     const [loaderState,setLoaderState] = useState(false)
 
-    const [errMsg,setErrMsg] = useState("")
+    const [errMsg,setErrMsg] = useState("");
     const selectedLang = useSelector(store=>store.lang.selectedLang);
     const user = useSelector(store=>store.user)
     const navigate = useNavigate();
@@ -24,18 +24,22 @@ const SignIn = () =>{
     const handleClick = ()=>{
         setLoaderState(true)
        const msg =  validate(email.current.value,password.current.value);
-       if(msg) return setErrMsg(msg);
+       if(msg){ 
+        setErrMsg(msg);
+        setLoaderState(false);
+        return;
+        };
 
        signInWithEmailAndPassword(auth,email.current.value,password.current.value)
        .then((response)=>{
             setLoaderState(false)
             const user = response.user;
             navigate("/browse")
-            console.log(user);
        }).catch((err)=>{
+            setLoaderState(false)
             const errCode = err.code;
             const errMsg = err.message;
-            setErrMsg(`${errCode},${errMsg}`);
+            setErrMsg(errCode === "auth/invalid-credential" ? "Invalid Credentials" : errCode);
        })
 
     }
@@ -44,19 +48,20 @@ const SignIn = () =>{
         <>  
             {loaderState && <Loader/>}
             <form className="signIn-div" onSubmit={(e)=>e.preventDefault()}>
-                <h1>Sign In</h1>
-                <div>
+                <h1>{lang[selectedLang].signIn}</h1>
+                <div>                    {errMsg && <p className="errorP">{errMsg}</p>}</div>
+                <div>  
                     <input placeholder={lang[selectedLang].email} type="email" ref={email}/>
-                    {errMsg && errMsg === "Email Not Valid" &&<p>{errMsg}</p>}
+                    {/* {errMsg && errMsg === "Email Not Valid" &&<p>{errMsg}</p>} */}
                 </div>
                 <div>
                     <input placeholder={lang[selectedLang].password} type="password" ref={password}/>
-                    {errMsg && errMsg === "Password Not Valid" &&<p>{errMsg}</p>}
+                    {/* {errMsg && errMsg === "Password Not Valid" &&<p>{errMsg}</p>} */}
                 </div>
                 <button className="signIn-btn"  onClick={handleClick}>{lang[selectedLang].signIn}</button>
                 <h4>___OR___</h4>
                 <button className="code-btn">Use a Sign-in Code</button>
-                <h5>Forgot Password ? </h5>
+                <h5 className="forgotPass">Forgot Password ? </h5>
             </form>
         </>
     )

@@ -8,7 +8,7 @@ import lang from "../utils/langConst";
 const SignUp = ()=>{
 
     const [loaderState,setLoaderState] = useState(false)
-
+    const [errMsg,setErrMsg] = useState("");
     const fullName = useRef(null);
     const email = useRef(null);
     const password = useRef(null);
@@ -19,19 +19,22 @@ const SignUp = ()=>{
         setLoaderState(true)
         const msg = validate(email.current.value,password.current.value);
 
-        if(msg) return;
+        if(msg){
+            setErrMsg(msg);
+            setLoaderState(false); 
+            return;
+        };
 
 
         createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
         .then((response)=>{
             setLoaderState(false)
             const user = response.user;
-            console.log(user);
         }).catch((err)=>{
+            setLoaderState(false)
             const errCode = err.code;
             const errMsg = err.message;
-
-            console.log(`${errCode} : ${errMsg}`);
+            setErrMsg(errCode);
         })
         
 
@@ -42,14 +45,17 @@ const SignUp = ()=>{
            {loaderState && < Loader/>}
             <div className="signUp-div">
                 <div className="signUp-grid-div">
-                    <div>
-                        <h1>Unlimited Movies,<br/>Web Series and TV Shows</h1>
+                    <div className="signUpH1">
+                        <h1>{lang[selectedLang].firstH1} <br/>{lang[selectedLang].secondH1} </h1>
                     </div>
                     <form className="signUp-form-grid-div" onSubmit={(e)=>{e.preventDefault()}}>
-                        <input placeholder={lang[selectedLang].fullName} type="text" ref={fullName}/>
-                        <input placeholder={lang[selectedLang].email} type="email" ref={email}/>
-                        <input placeholder={lang[selectedLang].password} ref={password}/>
-                        <button className="signUp-btn" onClick={handleSignUp}>{lang[selectedLang].signUp}</button> 
+                        <div>{errMsg && <p className="errorP">{errMsg}</p>}</div>
+                        <div>
+                            <input placeholder={lang[selectedLang].fullName} type="text" ref={fullName}/>
+                        </div>
+                        <div><input placeholder={lang[selectedLang].email} type="email" ref={email}/></div>
+                        <div><input placeholder={lang[selectedLang].password} ref={password}/></div>
+                        <div><button className="signUp-btn" onClick={handleSignUp}>{lang[selectedLang].signUp}</button></div> 
                     </form>
                 </div>   
             </div>   

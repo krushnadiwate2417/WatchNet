@@ -17,8 +17,7 @@ const useTrailerMovie = (movie_id)=>{
                 const trailer =  jsonRes.results.find((e)=>e.type == "Trailer");
                 dispatch(addTrailer(trailer ? trailer : jsonRes.results[0]));
         }catch(err){
-            console.log(err);
-            return
+            return err;
         }
     }
 }
