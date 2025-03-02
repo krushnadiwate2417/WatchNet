@@ -5,6 +5,7 @@ import { auth } from "../utils/firebase";
 import { useSelector } from "react-redux";
 import lang from "../utils/langConst";
 import Loader from "./Loader";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = ()=>{
 
@@ -14,6 +15,7 @@ const SignUp = ()=>{
     const email = useRef(null);
     const password = useRef(null);
     const selectedLang = useSelector(store=>store.lang.selectedLang);
+    const navigate = useNavigate();
 
 
     const handleSignUp = ()=>{
@@ -31,6 +33,7 @@ const SignUp = ()=>{
         .then((response)=>{
             setLoaderState(false)
             const user = response.user;
+            navigate("/browse");
         }).catch((err)=>{
             setLoaderState(false)
             const errCode = err.code;
