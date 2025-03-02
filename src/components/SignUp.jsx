@@ -4,6 +4,7 @@ import {createUserWithEmailAndPassword} from "firebase/auth"
 import { auth } from "../utils/firebase";
 import { useSelector } from "react-redux";
 import lang from "../utils/langConst";
+import Loader from "./Loader";
 
 const SignUp = ()=>{
 
