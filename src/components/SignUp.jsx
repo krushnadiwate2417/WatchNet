@@ -54,7 +54,7 @@ const SignUp = ()=>{
                             <input placeholder={lang[selectedLang].fullName} type="text" ref={fullName}/>
                         </div>
                         <div><input placeholder={lang[selectedLang].email} type="email" ref={email}/></div>
-                        <div><input placeholder={lang[selectedLang].password} ref={password}/></div>
+                        <div><input placeholder={lang[selectedLang].password} ref={password} type="password"/></div>
                         <div><button className="signUp-btn" onClick={handleSignUp}>{lang[selectedLang].signUp}</button></div> 
                     </form>
                 </div>   
